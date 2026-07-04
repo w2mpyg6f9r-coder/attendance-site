@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>자습실 얼굴 인식 출석체크</title>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>자습실 얼굴 인식 출석체크</h1>
+
+    <div class="top-area">
+      <div class="camera-box">
+        <div id="webcam-container">
+          <p class="camera-message">출석체크 시작 버튼을 눌러주세요.</p>
+        </div>
+
+        <div class="button-area">
+          <button onclick="init()">출석체크 시작</button>
+          <button onclick="downloadCSV()">CSV 다운로드</button>
+          <button onclick="clearAttendance()">기록 초기화</button>
+        </div>
+      </div>
+
+      <div class="status-box">
+        <h2>현재 인식 상태</h2>
+
+        <p>인식 클래스: <strong id="current-class">대기 중</strong></p>
+        <p>학번: <strong id="current-id">-</strong></p>
+        <p>이름: <strong id="current-name">-</strong></p>
+        <p>인식률: <strong id="current-probability">-</strong></p>
+        <p>상태: <strong id="current-status">시작 버튼을 눌러주세요</strong></p>
+      </div>
+    </div>
+
+    <h2>출석 기록</h2>
+
+    <table id="attendanceTable">
+      <thead>
+        <tr>
+          <th>학번</th>
+          <th>이름</th>
+          <th>출석 시간</th>
+          <th>인식률</th>
+          <th>모델 클래스명</th>
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    </table>
+
+    <h2>모델에서 자동으로 읽은 학생 명단</h2>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>학번</th>
+          <th>이름</th>
+          <th>모델 클래스명</th>
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>00

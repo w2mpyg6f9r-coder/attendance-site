@@ -1,0 +1,6 @@
+{
+  "modelPath": "./model/",
+  "threshold": 0.9,
+  "unknownLabels": ["Unknown", "unknown", "미등록", "빈자리"],
+  "cooldownSeconds": 30
+}
